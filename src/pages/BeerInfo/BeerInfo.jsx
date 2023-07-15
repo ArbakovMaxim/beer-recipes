@@ -1,7 +1,17 @@
 import { useBeerStore } from "../../state/beerState";
 import { v4 as uuidv4 } from "uuid";
 import { Navigate, useParams } from "react-router-dom";
-import { NavigationLink, Wraper } from "./BeerInfo.styled";
+import {
+  ImageBeer,
+  ItemBeer,
+  ItemIngridient,
+  List,
+  NavigationLink,
+  Span,
+  Title,
+  Wraper,
+  WraperCard,
+} from "./BeerInfo.styled";
 
 const BeerInfo = () => {
   const beers = useBeerStore((state) => state.beers);
@@ -19,93 +29,149 @@ const BeerInfo = () => {
 
   return (
     <Wraper>
-      <h1>beer</h1>
+      <Title>{beer.name}</Title>
       <NavigationLink to="/">Назад</NavigationLink>
-      <ul>
-        <li>
-          <img src={beer.image_url} alt="beer img" />
-        </li>
-        <li>name: {beer.name}</li>
-        <li>tagline: {beer.tagline}</li>
-        <li>first brewed: {beer.first_brewed}</li>
-        <li>description: {beer.description}</li>
-        <li>abv: {beer.abv}</li>
-        <li>ibu: {beer.ibu}</li>
-        <li>target fg: {beer.target_fg}</li>
-        <li>target og: {beer.target_og}</li>
-        <li>ebc: {beer.ebc}</li>
-        <li>srm: {beer.srm}</li>
-        <li>ph: {beer.ph}</li>
-        <li>attenuation level: {beer.attenuation_level}</li>
-        <li>
-          volume:
-          <ul key={uuidv4()}>
-            <li>value: {beer.volume.value}</li>
-            <li>unit: {beer.volume.unit}</li>
-          </ul>
-        </li>
-        <li>
-          boil volume:
-          <ul key={uuidv4()}>
-            <li>value: {beer.boil_volume.value}</li>
-            <li>unit: {beer.boil_volume.unit}</li>
-          </ul>
-        </li>
-        <li>
-          method:
-          {beer.method.mash_temp.map((mashtemp) => (
-            <ul key={uuidv4()}>
-              <li>value: {mashtemp.temp.value}</li>
-              <li>unit: {mashtemp.temp.unit}</li>
-              <li>duration: {mashtemp.duration}</li>
-            </ul>
-          ))}
-        </li>
-        <li>
-          fermentation:
-          <ul key={uuidv4()}>
-            <li>value: {beer.method.fermentation.temp.value}</li>
-            <li>unit: {beer.method.fermentation.temp.unit}</li>
-          </ul>
-        </li>
-        <li>
-          malt:
-          {beer.ingredients.malt.map((malt) => (
-            <ul key={uuidv4()}>
-              <li>name: {malt.name}</li>
-              <li>
-                amount: {malt.amount.value}
-                {malt.amount.unit}
-              </li>
-            </ul>
-          ))}
-        </li>
-        <li>
-          hops:
-          {beer.ingredients.hops.map((hops) => (
-            <ul key={uuidv4()}>
-              <li>name: {hops.name}</li>
-              <li>
-                amount: {hops.amount.value}
-                {hops.amount.unit}
-              </li>
-              <li>add: {hops.add}</li>
-              <li>attribute: {hops.attribute}</li>
-            </ul>
-          ))}
-        </li>
-        <li>yeast: {beer.ingredients.yeast}</li>
-        <li>
-          food pairing:
-          <ul key={uuidv4()}>
-            {beer.food_pairing.map((item) => (
-              <li key={uuidv4()}>{item}</li>
+      <WraperCard>
+        <ImageBeer src={beer.image_url} alt="beer img" />
+        <ul>
+          <ItemBeer>
+            <Span>Name:</Span> {beer.name}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Tagline:</Span> {beer.tagline}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>First brewed:</Span> {beer.first_brewed}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Description:</Span> {beer.description}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Abv:</Span> {beer.abv}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Ibu:</Span> {beer.ibu}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Target fg:</Span> {beer.target_fg}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Target og:</Span> {beer.target_og}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Ebc:</Span> {beer.ebc}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Srm:</Span> {beer.srm}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Ph:</Span> {beer.ph}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Attenuation level:</Span> {beer.attenuation_level}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Volume:</Span>
+            <List key={uuidv4()}>
+              <ItemBeer>
+                <Span>Value:</Span> {beer.volume.value}
+              </ItemBeer>
+              <ItemIngridient>
+                <Span>Unit:</Span> {beer.volume.unit}
+              </ItemIngridient>
+            </List>
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Boil volume:</Span>
+            <List key={uuidv4()}>
+              <ItemBeer>
+                <Span>Value:</Span> {beer.boil_volume.value}
+              </ItemBeer>
+              <ItemIngridient>
+                <Span>Unit:</Span> {beer.boil_volume.unit}
+              </ItemIngridient>
+            </List>
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Method:</Span>
+            {beer.method.mash_temp.map((mashtemp) => (
+              <List key={uuidv4()}>
+                <ItemBeer>
+                  <Span>Value:</Span> {mashtemp.temp.value}
+                </ItemBeer>
+                <ItemIngridient>
+                  <Span>Unit:</Span> {mashtemp.temp.unit}
+                </ItemIngridient>
+                <ItemBeer>
+                  <Span>Duration:</Span> {mashtemp.duration}
+                </ItemBeer>
+              </List>
             ))}
-          </ul>
-        </li>
-        <li>brewers tips: {beer.brewers_tips}</li>
-        <li>contributed by: {cleanedContributedBy}</li>
-      </ul>
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Fermentation:</Span>
+            <List key={uuidv4()}>
+              <ItemBeer>
+                <Span>Value:</Span> {beer.method.fermentation.temp.value}
+              </ItemBeer>
+              <ItemIngridient>
+                <Span>Unit:</Span> {beer.method.fermentation.temp.unit}
+              </ItemIngridient>
+            </List>
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Malt:</Span>
+            {beer.ingredients.malt.map((malt) => (
+              <List key={uuidv4()}>
+                <ItemBeer>
+                  <Span>Name:</Span> {malt.name}
+                </ItemBeer>
+                <ItemIngridient>
+                  <Span>Amount:</Span> {malt.amount.value}
+                  {malt.amount.unit}
+                </ItemIngridient>
+              </List>
+            ))}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Hops:</Span>
+            {beer.ingredients.hops.map((hops) => (
+              <List key={uuidv4()}>
+                <ItemBeer>
+                  <Span>Name:</Span> {hops.name}
+                </ItemBeer>
+                <ItemIngridient>
+                  <Span>Amount:</Span> {hops.amount.value}
+                  {hops.amount.unit}
+                </ItemIngridient>
+                <ItemIngridient>
+                  <Span>Add:</Span> {hops.add}
+                </ItemIngridient>
+                <ItemIngridient>
+                  <Span>Attribute:</Span> {hops.attribute}
+                </ItemIngridient>
+              </List>
+            ))}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Yeast:</Span> {beer.ingredients.yeast}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Food pairing:</Span>
+            <List key={uuidv4()}>
+              {beer.food_pairing.map((item) => (
+                <ItemBeer key={uuidv4()}>{item}</ItemBeer>
+              ))}
+            </List>
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Brewers tips:</Span> {beer.brewers_tips}
+          </ItemBeer>
+          <ItemBeer>
+            <Span>Contributed by:</Span> {cleanedContributedBy}
+          </ItemBeer>
+        </ul>
+      </WraperCard>
     </Wraper>
   );
 };

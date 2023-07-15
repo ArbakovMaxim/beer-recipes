@@ -34,7 +34,7 @@ export const ItemBeer = styled.li`
 padding: 5px 0 `
 
 export const ImageBeer = styled.img`
-width:150px;
+max-width:150px;
 height:350px;`
 
 export const WrapperImageBeer = styled.div`
@@ -45,8 +45,7 @@ margin-right: 10px;`
 export const WraperCard = styled.div`
 padding: 10px;
 display: flex;
-/* background-color: white; */
-background-color: ${(props) => (props.isSelected ? "lightblue" : "white")};
+background-color: ${(props) => (props.selected ? "lightblue" : "white")};
 border-radius:20px;
 &:not(:last-child) {
     margin-bottom: 50px;

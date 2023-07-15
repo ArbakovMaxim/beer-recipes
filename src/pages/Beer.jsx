@@ -89,6 +89,7 @@ const Beer = () => {
     } else {
       removeItems(deleteId);
       setDeleteId([]);
+      toast.success("Успешно удалено");
     }
   };
 
@@ -105,7 +106,7 @@ const Beer = () => {
       ) : null}
       {visibleItems.map((beer) => (
         <WraperCard
-          isSelected={deleteId.includes(beer.id)}
+          selected={deleteId.includes(beer.id)}
           key={beer.id}
           onClick={() => {
             navigate(`/${beer.id}`);

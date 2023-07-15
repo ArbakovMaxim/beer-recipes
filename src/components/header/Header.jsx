@@ -1,10 +1,12 @@
-import { Navigation } from "../Navigation/Navigation";
+import { HeaderTeg, Title, WraperHeader } from "./Header.styled";
+
 const Header = () => {
   return (
-    <>
-      <h1>Header</h1>
-      <Navigation />
-    </>
+    <HeaderTeg>
+      <WraperHeader>
+        <Title>Мировые рецепты пива</Title>
+      </WraperHeader>
+    </HeaderTeg>
   );
 };
 

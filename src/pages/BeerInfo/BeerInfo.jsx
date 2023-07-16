@@ -12,16 +12,30 @@ import {
   Wraper,
   WraperCard,
 } from "./BeerInfo.styled";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const BeerInfo = () => {
+  const [beer, setBeer] = useState(null);
   const beers = useBeerStore((state) => state.beers);
   const { ID } = useParams();
   const id = parseInt(ID);
 
-  const beer = beers.find((beer) => beer.id === id);
+  useEffect(() => {
+    let beer = beers.find((beer) => beer.id === id);
 
-  //Удаление
+    if (!beer) {
+      beer = JSON.parse(sessionStorage.getItem("saveBeer"));
+    } else {
+      sessionStorage.setItem("saveBeer", JSON.stringify(beer));
+    }
+    setBeer(beer);
+  }, [beers, id]);
+
+  if (!beer) {
+    return <div>Loading...</div>; // Показываем загрузочный компонент во время загрузки данных
+  }
+
+  //Удаление <>
   const cleanedContributedBy = beer.contributed_by.replace(/<[^>]+>/g, "");
 
   return (

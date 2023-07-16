@@ -1,6 +1,6 @@
 import { useBeerStore } from "../../state/beerState";
 import { v4 as uuidv4 } from "uuid";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   ImageBeer,
   ItemBeer,
@@ -18,10 +18,13 @@ const BeerInfo = () => {
   const { ID } = useParams();
   const id = parseInt(ID);
 
-  const beer = beers.find((beer) => beer.id === id);
+  let beer = beers.find((beer) => beer.id === id);
 
+  // сохранения в sessionStorage рецепта
   if (!beer) {
-    return <Navigate to="/" replace />;
+    beer = JSON.parse(sessionStorage.getItem("saveBeer"));
+  } else {
+    sessionStorage.setItem("saveBeer", JSON.stringify(beer));
   }
 
   //Удаление <>

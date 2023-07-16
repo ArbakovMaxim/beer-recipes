@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/beer-recipes/static/css/main.b978f62d.css",
+    "main.js": "/beer-recipes/static/js/main.5493bb6b.js",
+    "static/js/369.10d92a5b.chunk.js": "/beer-recipes/static/js/369.10d92a5b.chunk.js",
+    "static/js/424.cc20932c.chunk.js": "/beer-recipes/static/js/424.cc20932c.chunk.js",
+    "static/js/643.6282971f.chunk.js": "/beer-recipes/static/js/643.6282971f.chunk.js",
+    "static/js/2.8d0a8bed.chunk.js": "/beer-recipes/static/js/2.8d0a8bed.chunk.js",
+    "static/js/787.ff731081.chunk.js": "/beer-recipes/static/js/787.ff731081.chunk.js",
+    "static/js/608.e449f61d.chunk.js": "/beer-recipes/static/js/608.e449f61d.chunk.js",
+    "static/css/580.0c8dff8d.chunk.css": "/beer-recipes/static/css/580.0c8dff8d.chunk.css",
+    "static/media/bubbles.jpg": "/beer-recipes/static/media/bubbles.1d2ee08bacb83aa4f990.jpg",
+    "static/media/beer1.jpg": "/beer-recipes/static/media/beer1.eb0785af9e956ca32800.jpg",
+    "index.html": "/beer-recipes/index.html",
+    "main.b978f62d.css.map": "/beer-recipes/static/css/main.b978f62d.css.map",
+    "main.5493bb6b.js.map": "/beer-recipes/static/js/main.5493bb6b.js.map",
+    "369.10d92a5b.chunk.js.map": "/beer-recipes/static/js/369.10d92a5b.chunk.js.map",
+    "424.cc20932c.chunk.js.map": "/beer-recipes/static/js/424.cc20932c.chunk.js.map",
+    "643.6282971f.chunk.js.map": "/beer-recipes/static/js/643.6282971f.chunk.js.map",
+    "2.8d0a8bed.chunk.js.map": "/beer-recipes/static/js/2.8d0a8bed.chunk.js.map",
+    "787.ff731081.chunk.js.map": "/beer-recipes/static/js/787.ff731081.chunk.js.map",
+    "608.e449f61d.chunk.js.map": "/beer-recipes/static/js/608.e449f61d.chunk.js.map",
+    "580.0c8dff8d.chunk.css.map": "/beer-recipes/static/css/580.0c8dff8d.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/css/main.b978f62d.css",
+    "static/js/main.5493bb6b.js"
+  ]
+}
